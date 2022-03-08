@@ -16,6 +16,8 @@ For these environments, it is assumed that the SRD can be accessed as a standard
 
 [Video explanation](https://youtu.be/SLAtHEBMbQc)
 
+https://youtu.be/SLAtHEBMbQc
+
 ## Build images
 To make sure we keep the environments versioned, we're using environment variables to write the correct version.
 For each new version, we're also updating the `latest` images.
