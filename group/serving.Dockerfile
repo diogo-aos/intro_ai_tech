@@ -13,12 +13,10 @@ RUN apt-get -y update && apt-get install -y --no-install-recommends \
     && rm -rf /var/lib/apt/lists/*
 
 RUN ln -s /usr/bin/python3 /usr/bin/python
-RUN ln -s /usr/bin/pip3 /usr/bin/pip
-
 
 # for webapp and deployment
-RUN pip --no-cache-dir install flask
-RUN pip --no-chache-dir install gunicorn
+RUN pip --no-cache-dir install flask==2.0.3
+RUN pip --no-cache-dir install gunicorn==20.1.0
 
 # Set some environment variables. PYTHONUNBUFFERED keeps Python from buffering our standard
 # output stream, which means that logs can be delivered to the user quickly. PYTHONDONTWRITEBYTECODE

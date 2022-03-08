@@ -1,14 +1,27 @@
-Docker images should be as small as possible for each environment. We must consider 3 environments:
-- exploration: data science libraries that might be relevant for  data analysis, model development and SRD access.
-- automate: make available the minimum amount of libraries necessary to execute and manage the selected models, and access SRD.
-- scoring/serving: libraries to access SRD and serve webapp.
+# SRS predictive maintenance environments
+Docker images should be as small as possible for each environment. We must consider 3 environments.
+
+| Environment | Description |
+| -- | -- |
+| Explore | Data science libraries for data analysis, model development and SRD access. |
+| Automate | Make available the minimum amount of libraries necessary to execute and manage the selected models, and access SRD. In this example, we're assuming the final models would use algorithms from the scikit-learn library, but other libraries could be necessary. |
+| Scoring/serving | Libraries to access SRD, create webserver and serve resources to webapp (`flask`), optimize server for production (`gunicorn`), add security and load balance if necessary (`nginx`). |
 
 In this project, ML models are executed weekly in batch.
 They don't use data submitted by the user on-demand.
 This means, we don't need to execute ML models in the scoring/serving environment.
 We just need to serve the results produced by those models in the automate environment (and written in the SRD).
 
-# Build images
-docker build -f explore.Dockerfile -t iait_explore
-docker build -f explore.Dockerfile -t iait_automate
-docker build -f explore.Dockerfile -t iait_serving
+## Build images
+To make sure we keep the environments versioned, we're using environment variables to write the correct version.
+For each new version, we're also updating the `latest` images.
+
+```bash
+docker build -f explore.Dockerfile -t iait_explore:$EXPLORE_VERSION .
+docker build -f automate.Dockerfile -t iait_automate:$AUTOMATE_VERSION .
+docker build -f serving.Dockerfile -t iait_serving:$SERVING_VERSION .
+
+docker build -f explore.Dockerfile -t iait_explore:latest .
+docker build -f automate.Dockerfile -t iait_automate:latest .
+docker build -f serving.Dockerfile -t iait_serving:latest .
+```

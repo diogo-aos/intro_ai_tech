@@ -10,6 +10,8 @@ RUN apt-get -y update && apt-get install -y --no-install-recommends \
          python3-setuptools \
     && rm -rf /var/lib/apt/lists/*
 
+RUN ln -s /usr/bin/python3 /usr/bin/python
+
 
 # for running models and fetching data from SRD
 RUN pip --no-cache-dir install scikit-learn==1.0.2

@@ -2,14 +2,15 @@
 
 FROM ubuntu:20.04
 
-MAINTAINER dhjj.io
-
+MAINTAINER iait_dhjj.iseg
 
 RUN apt-get -y update && apt-get install -y --no-install-recommends \
          wget \
          python3-pip \
          python3-setuptools \
     && rm -rf /var/lib/apt/lists/*
+
+RUN ln -s /usr/bin/python3 /usr/bin/python
 
 # for data exploration
 RUN pip --no-cache-dir install numpy==1.22.3
