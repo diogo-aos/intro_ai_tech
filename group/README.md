@@ -25,3 +25,11 @@ docker build -f explore.Dockerfile -t iait_explore:latest .
 docker build -f automate.Dockerfile -t iait_automate:latest .
 docker build -f serving.Dockerfile -t iait_serving:latest .
 ```
+
+
+To set the version environment variables (e.g. to version 0.1.0), in a Bash terminal:
+```
+export EXPLORE_VERSION=0.1.0
+export AUTOMATE_VERSION=0.1.0
+export SERVING_VERSION=0.1.0
+```
