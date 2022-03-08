@@ -14,7 +14,7 @@ We just need to serve the results produced by those models in the automate envir
 
 For these environments, it is assumed that the SRD can be accessed as a standard SQL database, using the `psycopg` library.
 
-<video src='https://youtu.be/SLAtHEBMbQc' width=180/>
+[Video explanation](https://youtu.be/SLAtHEBMbQc)
 
 ## Build images
 To make sure we keep the environments versioned, we're using environment variables to write the correct version.
