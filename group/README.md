@@ -7,7 +7,7 @@ Docker images should be as small as possible for each environment. We must consi
 | Automate | Make available the minimum amount of libraries necessary to execute and manage the selected models, and access SRD. In this example, we're assuming the final models would use algorithms from the scikit-learn library, but other libraries could be necessary. |
 | Scoring/serving | Libraries to access SRD, create webserver and serve resources to webapp (`flask`), optimize server for production (`gunicorn`), add security and load balance if necessary (`nginx`). |
 
-In this project, ML models are executed weekly in batch.
+In this project, ML models are executed weekly in batch (for failure prediction) or real-time (to prioritize new unplanned failures).
 They don't use data submitted by the user on-demand.
 This means, we don't need to execute ML models in the scoring/serving environment.
 We just need to serve the results produced by those models in the automate environment (and written in the SRD).
@@ -37,3 +37,4 @@ export EXPLORE_VERSION=0.1.0
 export AUTOMATE_VERSION=0.1.0
 export SERVING_VERSION=0.1.0
 ```
+
