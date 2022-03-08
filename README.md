@@ -1,1 +1,1 @@
-# intro_ai_tech
+# Introduction to Artificial Intelligence Technology
