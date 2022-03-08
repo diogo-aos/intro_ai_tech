@@ -12,6 +12,8 @@ They don't use data submitted by the user on-demand.
 This means, we don't need to execute ML models in the scoring/serving environment.
 We just need to serve the results produced by those models in the automate environment (and written in the SRD).
 
+For these environments, it is assumed that the SRD can be accessed as a standard SQL database, using the `psycopg` library.
+
 ## Build images
 To make sure we keep the environments versioned, we're using environment variables to write the correct version.
 For each new version, we're also updating the `latest` images.

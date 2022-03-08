@@ -17,6 +17,7 @@ RUN ln -s /usr/bin/python3 /usr/bin/python
 # for webapp and deployment
 RUN pip --no-cache-dir install flask==2.0.3
 RUN pip --no-cache-dir install gunicorn==20.1.0
+RUN pip --no-cache-dir install psycopg==3.0.9
 
 # Set some environment variables. PYTHONUNBUFFERED keeps Python from buffering our standard
 # output stream, which means that logs can be delivered to the user quickly. PYTHONDONTWRITEBYTECODE
