@@ -27,5 +27,5 @@ ENV PYTHONDONTWRITEBYTECODE=TRUE
 ENV PATH="/opt/program:${PATH}"
 
 # Set up the program in the image
-# COPY models /opt/program
+COPY models /opt/program
 WORKDIR /opt/program

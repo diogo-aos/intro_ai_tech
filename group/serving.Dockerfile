@@ -29,4 +29,5 @@ ENV PYTHONDONTWRITEBYTECODE=TRUE
 ENV PATH="/opt/program:${PATH}"
 
 # Set up the program in the image
+COPY app /opt/program/
 WORKDIR /opt/program
